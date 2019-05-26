@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "packt-api",
+  "alias": "api.plentyofdogs.org",
+  "builds": [{ "src": "api/src/app.mjs", "use": "@now/node" }],
+  "env": {
+    "NODE_ENV": "production",
+    "HOST": "0.0.0.0",
+    "PORT": "3000",
+    "JWT_SECRET": "AsV01uDXcWTWufu5vXMRBbM0qd6MJiiag0U1xYKPV2pgrAfFBj7OXwkv4Ab4Avo",
+    "MONGO_URI": ""
+  }
+}

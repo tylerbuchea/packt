@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+script=${1}
+option=${2}
+
+if [ $script == "setup" ] ; then
+  yarn && cd api && yarn && cd ../app && yarn
+
+elif [ $script == "start-db" ] ; then
+  docker-compose -f ./api/docker-compose.yml up
+
+elif [ $script == "start-api" ] ; then
+  docker-compose -f ./api/dev.yml up
+
+elif [ $script == "start-app" ] ; then
+  cd app && yarn start
+
+elif [ $script == "deploy" ] ; then
+  cd api
+  now --public
+  now alias
+
+fi

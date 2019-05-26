@@ -1,0 +1,6 @@
+.data
+.DS_Store
+node_modules
+npm-*.log
+package-lock.json
+yarn-*.log
