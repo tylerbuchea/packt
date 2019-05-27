@@ -1,32 +1,23 @@
-import ApolloServer from 'apollo-server';
+import apollo from 'apollo-server';
+import jwt from 'jsonwebtoken';
 import on from 'await-on';
 
 import { generateModels, instance } from './models';
 import resolvers from './resolvers';
 import schema from './schema';
 
-const { ApolloServer } = ApolloServer;
-const { HOST, JWT_SECRET, PORT } = process.env;
+const { ApolloServer } = apollo;
+const { JWT_SECRET } = process.env;
 
 const context = async ({ req }) => {
-  if (!req.headers.authorization) {
-    throw Error('Not authenticated');
-  }
-
-  let user = null;
-  const { id: userId } = jwt.verify(
-    req.headers.authorization.replace('Bearer ', ''),
-    JWT_SECRET
-  );
-  if (!userId) throw Error('Not authorized');
-  const [, foundUser] = await on(instance.findOne('User', { id: userId }));
-  if (!foundUser) throw Error('User not found');
-  user = foundUser;
-
+  const token = (req.headers.authorization || '').replace('Bearer ', '');
+  const data = token && jwt.verify(token, JWT_SECRET);
+  const [, user] = data
+    ? await on(instance.model('User').findById(data.id))
+    : [,];
   const models = generateModels({ user });
-  const context = { models, user };
 
-  return context;
+  return { models, user };
 };
 
 const server = new ApolloServer({
@@ -35,6 +26,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-server.listen(PORT, HOST, () => {
-  console.log(`Running on http://${HOST}:${PORT}/graphql`);
+server.listen(3000, () => {
+  console.log(`Running on http://localhost:3000/graphql`);
 });

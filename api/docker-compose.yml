@@ -1,7 +1,14 @@
-version: '3.3'
-  packt-mongo:
-    image: mongo
-    volumes:
-      - './.data/mongo:/data/db'
+version: '3'
+
+services:
+
+  packt-neo4js:
+    image: neo4j:latest
     ports:
-      - '27017:27017'
+      - 7474:7474
+      - 6477:6477
+      - 7687:7687
+    volumes:
+      - './.data:/data'
+    environment:
+      - NEO4J_AUTH=neo4j/changeme

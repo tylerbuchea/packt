@@ -9,14 +9,16 @@ if [ $script == "setup" ] ; then
 elif [ $script == "start-db" ] ; then
   docker-compose -f ./api/docker-compose.yml up
 
+elif [ $script == "stop-db" ] ; then
+  docker-compose -f ./api/docker-compose.yml down
+
 elif [ $script == "start-api" ] ; then
-  docker-compose -f ./api/dev.yml up
+  cd api && yarn dev
 
 elif [ $script == "start-app" ] ; then
   cd app && yarn start
 
 elif [ $script == "deploy" ] ; then
-  cd api
   now --public
   now alias
 

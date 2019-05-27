@@ -1,18 +1,16 @@
-# Packt
+# Hands-on GRANDStack - GraphQL, React, Apollo & Neo4jDB
 
-## Hands-on GRANDStack - GraphQL, React, Apollo & Neo4jDB
+## Summary of Contents
 
-### Summary of Contents
-
-1. Setup Apollo Client with React - Setup React
-2. Connect to Apollo Server - Setup Apollo & connect back
-3. Configure Neo4j Docker Container - Setup Neo4j and connect back
-4. Use Neode to Query Neo4j - Setup models and connect back
-5. Implement Authentication & Authorization - Setup auth and connect to both
+1. Setup Apollo Client with React
+2. Connect to Apollo Server
+3. Configure Neo4j Docker Container
+4. Use Neode to Query Neo4j
+5. Implement Authentication & Authorization
 6. Create GraphQL Schemas & Resolvers
-7. Improve Performance with DataLoader
+7. Create GraphQL Backed React Components
 
-### Setup
+## Setup
 
 ```bash
 # Install https://www.docker.com/
@@ -20,10 +18,10 @@
 ./ops setup
 ```
 
-### Develop
+## Develop
 
 ```bash
-# start api 🎉
+# start db 🚀
 ./ops start-db
 
 # start api 🎉
@@ -33,7 +31,7 @@
 ./ops start-app
 ```
 
-### Deploy
+## Deploy
 
 ```bash
 ./ops deploy
