@@ -6,8 +6,6 @@ import on from "await-on";
 import styled from "styled-components";
 import { Button, Card, Input, Typography } from "antd";
 
-import { withBoundary } from "../components/Boundary";
-
 const { Title } = Typography;
 
 export function Login(props) {
@@ -88,9 +86,7 @@ Login.defaultProps = {
   navigation: null
 };
 
-const BoundaryComponent = withBoundary(Login);
-
-export default styled(BoundaryComponent)`
+export default styled(Login)`
   align-items: center;
   display: flex;
   justify-content: center;

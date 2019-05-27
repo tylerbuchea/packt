@@ -1,19 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-export function Settings(props) {
-  const { className } = props;
+export function ProductDetail(props) {
+  const { className, match } = props;
   return (
     <div className={className}>
-      <h1>Post</h1>
-      <div className="file">
-        <input type="file" />
-      </div>
+      <h1>Product Detail {match.params.id}</h1>
     </div>
   );
 }
 
-export default styled(Settings)`
+export default styled(ProductDetail)`
   .file {
     padding: 10px;
     border: 1px solid #aaa;

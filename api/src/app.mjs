@@ -26,6 +26,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-server.listen(3000, () => {
-  console.log(`Running on http://localhost:3000/graphql`);
+server.listen(1337, () => {
+  console.log(`Running on http://localhost:1337/graphql`);
 });

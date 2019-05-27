@@ -6,8 +6,6 @@ import on from "await-on";
 import styled from "styled-components";
 import { Button, Card, Input, Typography } from "antd";
 
-import { withBoundary } from "../components/Boundary";
-
 const { Title } = Typography;
 
 export function Register(props) {
@@ -113,9 +111,7 @@ Register.defaultProps = {
   navigation: null
 };
 
-const BoundaryComponent = withBoundary(Register);
-
-export default styled(BoundaryComponent)`
+export default styled(Register)`
   display: flex;
   align-items: center;
   justify-content: center;

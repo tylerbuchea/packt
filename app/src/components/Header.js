@@ -3,46 +3,32 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Layout, Menu } from "antd";
 
-import { withBoundary } from "../components/Boundary";
-
 const { Header: AntHeader } = Layout;
 
 export function Header(props) {
   const { className } = props;
   return (
     <AntHeader className={className}>
-      <Link to="/">
-        <div className="logo">
-          <img src="/icon.svg" alt="logo" />
-        </div>
-      </Link>
+      <div className="logo">
+        <img src="/icon.png" alt="logo" />
+      </div>
 
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={["2"]}
-        className="menu"
-      >
-        <Menu.Item key="home">
-          <Link to="/">Home</Link>
+      <Menu theme="dark" mode="horizontal" className="menu">
+        <Menu.Item key="products">
+          <Link to="/">Products</Link>
         </Menu.Item>
-        <Menu.Item key="settings">
-          <Link to="/settings">Settings</Link>
+        <Menu.Item key="post">
+          <Link to="/post">Post</Link>
         </Menu.Item>
         <Menu.Item key="login">
-          <Link to="/login">Login</Link>
-        </Menu.Item>
-        <Menu.Item key="register">
-          <Link to="/register">Register</Link>
+          <Link to="/login">Login / Register</Link>
         </Menu.Item>
       </Menu>
     </AntHeader>
   );
 }
 
-const BoundaryComponent = withBoundary(Header);
-
-export default styled(BoundaryComponent)`
+export default styled(Header)`
   position: fixed;
   width: 100%;
   z-index: 1;

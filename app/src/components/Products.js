@@ -2,30 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { withBoundary } from "../components/Boundary";
-
-const profiles = Array(20).fill(undefined);
+const posts = Array(20).fill(undefined);
 
 export function Home(props) {
   const { className } = props;
 
-  const renderProfile = (profile, index) => (
-    <Link to={`/profile/${index}`} className="item" key={index}>
-      <p>hi</p>
-      <img src="" alt="profile" />
+  const renderPost = (profile, index) => (
+    <Link to={`/product/${index}`} className="item" key={index}>
+      <img src="" alt="post" />
     </Link>
   );
 
   return (
     <div className={className}>
-      <div className="grid">{profiles.map(renderProfile)}</div>
+      <div className="grid">{posts.map(renderPost)}</div>
     </div>
   );
 }
 
-const BoundaryComponent = withBoundary(Home);
-
-export default styled(BoundaryComponent)`
+export default styled(Home)`
   /* https://medium.com/cloudaper/how-to-create-a-flexible-square-grid-with-css-grid-layout-ea48baf038f3 */
   .grid {
     display: grid;
